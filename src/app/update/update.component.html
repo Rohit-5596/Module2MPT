@@ -1,0 +1,29 @@
+<!--This HTML page allows you to edit an existing record(overwrites on previous data)-->
+<div class="container">
+        <form bookForm="ngForm" (ngSubmit)="update()" class="was-validated">
+        <div class="form-group">
+            Book Id: <input type="number" name="id" id="id" [(ngModel)]="books.id" #bookid="ngModel" class="form-control" required>
+            <span class="invalid-feedback" *ngIf="bookid.touched && bookid.errors?.required">Book id required</span>
+        </div>
+    
+        <div class="form-group">
+                Book Name: <input type="text" name="name" id="name" [(ngModel)]="books.name" #bookname="ngModel" class="form-control" required>
+                <span class="invalid-feedback" *ngIf="bookname.touched && bookname.errors?.required">Book name required</span>
+            </div>
+    
+            
+        <div class="form-group">
+                Book Cost: <input type="number" name="cost" id="cost" [(ngModel)]="books.cost" #bookcost="ngModel" class="form-control" required>
+                <span class="invalid-feedback" *ngIf="bookcost.errors?.required && bookcost.touched">Book Cost required</span>
+            </div>
+    
+            <div class="form-group">
+                Book Author: <input type="text" name="author" id="author" [(ngModel)]="books.author" #bookauthor="ngModel" class="form-control" required>
+                <span class="invalid-feedback" *ngIf="bookauthor.errors?.required && bookauthor.touched">Author name required</span>
+            </div>
+            
+            <button class="btn btn-primary" type="submit" [disabled]="bookForm.invalid">Update</button>
+            {{bookForm}}
+              
+        </form>
+        </div>

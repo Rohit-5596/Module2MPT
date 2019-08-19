@@ -1,0 +1,21 @@
+<!--This HTML page displays the list of books in the list(from book.json and newly added books)-->
+
+<div class="container">
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>BOOK ID</th><th>BOOK NAME</th><th>BOOK COST</th><th>BOOK AUTHOR</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let book of books; let i=index" >
+        <td>{{book.id}}</td>
+        <td>{{book.name}}</td>
+        <td>{{book.cost}}</td>
+        <td>{{book.author}}</td>
+        <td><button class="btn btn-primary" (click)="delete(i)">Delete</button></td>
+        <td><button class="btn btn-primary" (click)="update(i)">Edit</button></td>
+    </tr>
+</tbody>
+</table>
+</div>
